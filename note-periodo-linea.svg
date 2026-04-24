@@ -1,0 +1,17 @@
+<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="checklistGlow" x1="12" y1="12" x2="76" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7A6BFF"/>
+      <stop offset="1" stop-color="#67BCFF"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="68" height="68" rx="24" fill="url(#checklistGlow)" fill-opacity="0.15"/>
+  <path d="M26 23H50L60 33V60C60 63.3137 57.3137 66 54 66H26C22.6863 66 20 63.3137 20 60V29C20 25.6863 22.6863 23 26 23Z" fill="#FFFFFF" fill-opacity="0.8"/>
+  <path d="M50 23V31C50 34.3137 52.6863 37 56 37H60" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27.5 40L30.5 43L35.5 38" stroke="#61C786" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 40H53" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M27.5 49L30.5 52L35.5 47" stroke="#61C786" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 49H51" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M27.5 58L30.5 61L35.5 56" stroke="#61C786" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M39 58H48" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round"/>
+</svg>

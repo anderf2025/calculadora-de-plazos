@@ -1,0 +1,17 @@
+<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="reportGlow" x1="12" y1="12" x2="76" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7A6BFF"/>
+      <stop offset="1" stop-color="#67BCFF"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="68" height="68" rx="24" fill="url(#reportGlow)" fill-opacity="0.15"/>
+  <path d="M26 22H50L61 33V61C61 64.3137 58.3137 67 55 67H26C22.6863 67 20 64.3137 20 61V28C20 24.6863 22.6863 22 26 22Z" fill="#FFFFFF" fill-opacity="0.82"/>
+  <path d="M50 22V31C50 34.3137 52.6863 37 56 37H61" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 55L36 47L42 52L49 42L55 46" stroke="#6F7FB1" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 35H43" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M29 42H39" stroke="#6F7FB1" stroke-width="3.6" stroke-linecap="round"/>
+  <circle cx="58" cy="58" r="10" fill="#FFFFFF" fill-opacity="0.96"/>
+  <path d="M53.5 58L57 61.5L63 54.5" stroke="#61C786" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="58" cy="58" r="10" stroke="#61C786" stroke-width="3"/>
+</svg>
