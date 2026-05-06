@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de credito educativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" type="image/x-icon" href="logoappplazo.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+    <div class="background-orb orb-three"></div>
+    <div class="background-orb orb-four"></div>
+
+    <div class="accessibility-panel">
+      <button class="accessibility-trigger" type="button" aria-expanded="false" aria-controls="accessibilityMenu">
+        <span aria-hidden="true">🔊</span>
+        <span>Lectura</span>
+      </button>
+      <div class="accessibility-menu" id="accessibilityMenu">
+        <button class="accessibility-action" type="button" data-read-action="interface">Leer interfaz</button>
+        <button class="accessibility-action" type="button" data-read-action="result">Leer resultado</button>
+        <button class="accessibility-action" type="button" data-read-action="stop">Detener lectura</button>
+        <p class="accessibility-note" id="speechSupportMessage" hidden>La lectura por voz no esta disponible en este navegador.</p>
+      </div>
+    </div>
+
+    <main class="app-layout">
+      <section class="hero-panel">
+        <div class="hero-title-row">
+          <img class="hero-logo" src="logoappplazo.ico" alt="Logo de la calculadora de credito educativo" />
+          <h1>Calculadora<br />de credito<br />educativo</h1>
+        </div>
+        <p>Calcula plazos segun el periodo y la fecha de pago.</p>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-note note-top">
+            <span class="note-icon">
+              <img class="note-icon-image" src="note-periodo-linea.svg" alt="" />
+            </span>
+            <div class="note-copy">
+              <strong>Periodo y linea</strong>
+              <span>Consulta con la linea y el codigo para definir el escenario.</span>
+            </div>
+          </div>
+          <div class="floating-note note-middle">
+            <span class="note-icon">
+              <img class="note-icon-image" src="note-fecha-pago.svg" alt="" />
+            </span>
+            <div class="note-copy">
+              <strong>Fecha de pago</strong>
+              <span>Con la fecha de pago del credito calcula el plazo que aplica en el credito.</span>
+            </div>
+          </div>
+          <div class="floating-note note-bottom">
+            <span class="note-icon">
+              <img class="note-icon-image" src="note-resultado.svg" alt="" />
+            </span>
+            <div class="note-copy">
+              <strong>Resultado arrojado</strong>
+              <span>Obtiene el plazo segun linea, periodo y fecha de pago.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="app-title">
+        <div class="card-header">
+          <div class="title-block">
+            <h2 class="title" id="app-title">Calculadora de credito educativo</h2>
+            <p class="subtitle">Calcula plazos segun el periodo y la fecha de pago</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="lineaCredito">Linea de Credito</label>
+            <div class="custom-dropdown" data-select-target="lineaCredito">
+              <select id="lineaCredito" class="native-select-hidden">
+                <option value="">Selecciona</option>
+                <option value="610">610</option>
+                <option value="376">376</option>
+                <option value="461">461</option>
+                <option value="2010">2010</option>
+                <option value="cartera administrada">Cartera administrada</option>
+                <option value="cartera riesgo">Cartera riesgo</option>
+              </select>
+              <button class="custom-dropdown-trigger" type="button" aria-expanded="false">
+                <span class="custom-dropdown-value">Selecciona</span>
+                <span class="custom-dropdown-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="custom-dropdown-menu" role="listbox">
+                <button class="custom-dropdown-option is-placeholder" type="button" data-value="">Selecciona</button>
+                <button class="custom-dropdown-option" type="button" data-value="610">610</button>
+                <button class="custom-dropdown-option" type="button" data-value="376">376</button>
+                <button class="custom-dropdown-option" type="button" data-value="461">461</button>
+                <button class="custom-dropdown-option" type="button" data-value="2010">2010</button>
+                <button class="custom-dropdown-option" type="button" data-value="cartera administrada">Cartera administrada</button>
+                <button class="custom-dropdown-option" type="button" data-value="cartera riesgo">Cartera riesgo</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="periodo">Periodo</label>
+            <input type="text" id="periodo" placeholder="Ej: 202610" />
+          </div>
+
+          <div class="field">
+            <label for="fechaActual">Fecha Actual</label>
+            <input type="date" id="fechaActual" />
+          </div>
+
+          <div class="field">
+            <label for="fechaPago">Dia de Pago</label>
+            <div class="custom-dropdown" data-select-target="fechaPago">
+              <select id="fechaPago" class="native-select-hidden">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+              </select>
+              <button class="custom-dropdown-trigger" type="button" aria-expanded="false">
+                <span class="custom-dropdown-value">5</span>
+                <span class="custom-dropdown-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="custom-dropdown-menu" role="listbox">
+                <button class="custom-dropdown-option" type="button" data-value="5">5</button>
+                <button class="custom-dropdown-option" type="button" data-value="10">10</button>
+                <button class="custom-dropdown-option" type="button" data-value="20">20</button>
+                <button class="custom-dropdown-option" type="button" data-value="25">25</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field field-full">
+            <label for="plazoSolicitado">Plazo Solicitado</label>
+            <input type="number" id="plazoSolicitado" placeholder="Ej: 4" min="1" />
+          </div>
+        </div>
+
+        <div id="posgradoFields" class="conditional-panel" style="display: none;">
+          <div class="field">
+            <label for="valorFinanciarDisplay">Valor a Financiar</label>
+            <div class="currency-input-wrap">
+              <input
+                type="text"
+                id="valorFinanciarDisplay"
+                inputmode="numeric"
+                placeholder="Ej: 5.000.000"
+                autocomplete="off"
+              />
+              <input
+                type="hidden"
+                id="valorFinanciar"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div id="linea461Fields" class="conditional-panel" style="display: none;">
+          <div class="form-grid form-grid-secondary">
+            <div class="field">
+              <label for="semestreAnterior">Semestre Anterior</label>
+              <input type="number" id="semestreAnterior" placeholder="Ej: 3" min="1" max="10" />
+            </div>
+
+            <div class="field">
+              <label for="plazoAnterior">Plazo Anterior</label>
+              <input type="number" id="plazoAnterior" placeholder="Ej: 22" min="1" />
+            </div>
+          </div>
+        </div>
+
+        <button class="primary-action" type="button" onclick="invocarCalculo()">
+          Calcular plazo
+        </button>
+
+        <div class="result" id="resultado"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="app-footer">Desarrollado por Anderson Beltrán · © 2026</footer>
+
+  <div class="alert-modal" id="alertModal" aria-hidden="true">
+    <div class="alert-modal-backdrop" data-alert-close></div>
+    <section class="alert-modal-card" role="alertdialog" aria-modal="true" aria-labelledby="alertModalTitle" aria-describedby="alertModalMessage">
+      <div class="alert-modal-visual" aria-hidden="true">
+        <span class="alert-question alert-question-one">?</span>
+        <span class="alert-question alert-question-two">?</span>
+        <img class="alert-modal-image" src="error-robot.svg" alt="" />
+      </div>
+      <div class="alert-modal-copy">
+        <span class="alert-modal-kicker">Validacion requerida</span>
+        <h3 id="alertModalTitle">No pudimos continuar</h3>
+        <p id="alertModalMessage"></p>
+      </div>
+      <button class="primary-action alert-modal-action" id="alertModalAccept" type="button">
+        Aceptar
+      </button>
+    </section>
+  </div>
+
+  <script src="script.prod.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const dropdowns = document.querySelectorAll(".custom-dropdown");
+      const keyboardFieldSelector = [
+        ".custom-dropdown-trigger",
+        "#periodo",
+        "#fechaActual",
+        "#plazoSolicitado",
+        "#valorFinanciarDisplay",
+        "#semestreAnterior",
+        "#plazoAnterior",
+        ".primary-action"
+      ].join(", ");
+      const valorFinanciarReal = document.getElementById("valorFinanciar");
+      const valorFinanciarDisplay = document.getElementById("valorFinanciarDisplay");
+      const plazoSolicitadoInput = document.getElementById("plazoSolicitado");
+
+      function formatCurrencyInput(value) {
+        const digits = String(value || "").replace(/\D/g, "");
+        if (!digits) {
+          return "";
+        }
+
+        return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function syncValorFinanciarDisplayFromReal() {
+        if (!valorFinanciarReal || !valorFinanciarDisplay) {
+          return;
+        }
+
+        valorFinanciarDisplay.value = formatCurrencyInput(valorFinanciarReal.value);
+      }
+
+      function syncPlazoSolicitadoState() {
+        if (!plazoSolicitadoInput) {
+          return;
+        }
+
+        const lineaCredito = document.getElementById("lineaCredito").value;
+        const isLinea461 = lineaCredito === "461";
+
+        plazoSolicitadoInput.disabled = isLinea461;
+        plazoSolicitadoInput.setAttribute("aria-disabled", String(isLinea461));
+
+        if (isLinea461) {
+          plazoSolicitadoInput.value = "";
+          plazoSolicitadoInput.placeholder = "No aplica para 461";
+        } else {
+          plazoSolicitadoInput.placeholder = "Ej: 4";
+        }
+      }
+
+      if (valorFinanciarReal && valorFinanciarDisplay) {
+        valorFinanciarDisplay.addEventListener("input", function () {
+          const rawDigits = valorFinanciarDisplay.value.replace(/\D/g, "");
+          valorFinanciarReal.value = rawDigits;
+          valorFinanciarDisplay.value = formatCurrencyInput(rawDigits);
+        });
+
+        valorFinanciarDisplay.addEventListener("focus", function () {
+          syncValorFinanciarDisplayFromReal();
+        });
+
+        document.getElementById("lineaCredito").addEventListener("change", function () {
+          requestAnimationFrame(syncValorFinanciarDisplayFromReal);
+          requestAnimationFrame(syncPlazoSolicitadoState);
+        });
+
+        document.getElementById("periodo").addEventListener("input", function () {
+          requestAnimationFrame(syncValorFinanciarDisplayFromReal);
+        });
+
+        syncValorFinanciarDisplayFromReal();
+        syncPlazoSolicitadoState();
+      }
+
+      function isVisible(element) {
+        return !!(element && element.offsetParent !== null && !element.disabled);
+      }
+
+      function getVisibleFields() {
+        return Array.from(document.querySelectorAll(keyboardFieldSelector)).filter(isVisible);
+      }
+
+      function moveFocus(currentElement, direction) {
+        const fields = getVisibleFields();
+        const currentIndex = fields.indexOf(currentElement);
+
+        if (currentIndex === -1) {
+          return;
+        }
+
+        const nextIndex = currentIndex + direction;
+        if (nextIndex >= 0 && nextIndex < fields.length) {
+          fields[nextIndex].focus();
+        }
+      }
+
+      function closeDropdown(dropdown) {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelector(".custom-dropdown-trigger").setAttribute("aria-expanded", "false");
+      }
+
+      function closeAllDropdowns(except) {
+        dropdowns.forEach((dropdown) => {
+          if (dropdown !== except) {
+            closeDropdown(dropdown);
+          }
+        });
+      }
+
+      dropdowns.forEach((dropdown) => {
+        const targetId = dropdown.getAttribute("data-select-target");
+        const nativeSelect = document.getElementById(targetId);
+        const trigger = dropdown.querySelector(".custom-dropdown-trigger");
+        const valueLabel = dropdown.querySelector(".custom-dropdown-value");
+        const options = dropdown.querySelectorAll(".custom-dropdown-option");
+
+        function getSelectedOptionButton() {
+          return dropdown.querySelector(".custom-dropdown-option.is-selected") || options[0];
+        }
+
+        function syncDropdown() {
+          const selectedOption = nativeSelect.options[nativeSelect.selectedIndex];
+          const currentValue = selectedOption ? selectedOption.value : "";
+          const currentLabel = selectedOption ? selectedOption.textContent : "";
+
+          valueLabel.textContent = currentLabel;
+
+          options.forEach((option) => {
+            option.classList.toggle("is-selected", option.getAttribute("data-value") === currentValue);
+          });
+        }
+
+        function openDropdown() {
+          closeAllDropdowns(dropdown);
+          dropdown.classList.add("is-open");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+
+        trigger.addEventListener("click", function () {
+          const willOpen = !dropdown.classList.contains("is-open");
+          if (willOpen) {
+            openDropdown();
+          } else {
+            closeDropdown(dropdown);
+          }
+        });
+
+        options.forEach((option) => {
+          option.addEventListener("click", function () {
+            nativeSelect.value = option.getAttribute("data-value");
+            nativeSelect.dispatchEvent(new Event("change", { bubbles: true }));
+            syncDropdown();
+            closeDropdown(dropdown);
+          });
+
+          option.addEventListener("keydown", function (event) {
+            const currentIndex = Array.from(options).indexOf(option);
+
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              const nextOption = options[currentIndex + 1] || options[0];
+              nextOption.focus();
+            }
+
+            if (event.key === "ArrowUp") {
+              event.preventDefault();
+              const previousOption = options[currentIndex - 1] || options[options.length - 1];
+              previousOption.focus();
+            }
+
+            if (event.key === "ArrowRight") {
+              event.preventDefault();
+              closeDropdown(dropdown);
+              moveFocus(trigger, 1);
+            }
+
+            if (event.key === "ArrowLeft") {
+              event.preventDefault();
+              closeDropdown(dropdown);
+              moveFocus(trigger, -1);
+            }
+
+            if (event.key === "Escape") {
+              event.preventDefault();
+              closeDropdown(dropdown);
+              trigger.focus();
+            }
+          });
+        });
+
+        trigger.addEventListener("keydown", function (event) {
+          if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openDropdown();
+            getSelectedOptionButton().focus();
+          }
+
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            moveFocus(trigger, 1);
+          }
+
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            moveFocus(trigger, -1);
+          }
+        });
+
+        nativeSelect.addEventListener("change", syncDropdown);
+        syncDropdown();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        const activeElement = document.activeElement;
+        const isPeriodField = activeElement && activeElement.id === "periodo";
+        const isDateField = activeElement && activeElement.id === "fechaActual";
+        const isExtraField = activeElement && ["plazoSolicitado", "valorFinanciarDisplay", "semestreAnterior", "plazoAnterior"].includes(activeElement.id);
+        const isActionButton = activeElement && activeElement.classList.contains("primary-action");
+
+        if (!isPeriodField && !isDateField && !isExtraField && !isActionButton) {
+          return;
+        }
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          moveFocus(activeElement, 1);
+        }
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          moveFocus(activeElement, -1);
+        }
+
+        if (event.key === "Enter" && isActionButton) {
+          event.preventDefault();
+          activeElement.click();
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".custom-dropdown")) {
+          closeAllDropdowns(null);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeAllDropdowns(null);
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const accessibilityPanel = document.querySelector(".accessibility-panel");
+      const accessibilityTrigger = document.querySelector(".accessibility-trigger");
+      const accessibilityMenu = document.getElementById("accessibilityMenu");
+      const supportMessage = document.getElementById("speechSupportMessage");
+      const resultContainer = document.getElementById("resultado");
+      const supportsSpeech = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+      let availableVoices = [];
+
+      function setPanelState(isOpen) {
+        accessibilityPanel.classList.toggle("is-open", isOpen);
+        accessibilityTrigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      }
+
+      function loadVoices() {
+        availableVoices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+      }
+
+      function getSpanishVoice() {
+        return availableVoices.find((voice) => voice.lang && voice.lang.toLowerCase().startsWith("es")) || null;
+      }
+
+      function detenerLectura() {
+        if (supportsSpeech) {
+          window.speechSynthesis.cancel();
+        }
+      }
+
+      function leerTexto(texto) {
+        if (!supportsSpeech) {
+          console.warn("speechSynthesis no esta disponible en este navegador.");
+          supportMessage.hidden = false;
+          setPanelState(true);
+          return;
+        }
+
+        const contenido = (texto || "").trim();
+        if (!contenido) {
+          return;
+        }
+
+        detenerLectura();
+
+        const utterance = new SpeechSynthesisUtterance(contenido);
+        const spanishVoice = getSpanishVoice();
+
+        utterance.lang = spanishVoice ? spanishVoice.lang : "es-ES";
+        utterance.rate = 1;
+        utterance.pitch = 1;
+
+        if (spanishVoice) {
+          utterance.voice = spanishVoice;
+        }
+
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function leerInterfaz() {
+        const title = document.querySelector(".hero-panel h1");
+        const subtitle = document.querySelector(".hero-panel p");
+        const noteTitles = Array.from(document.querySelectorAll(".hero-visual .note-copy strong"));
+        const noteDescriptions = Array.from(document.querySelectorAll(".hero-visual .note-copy span"));
+        const labelLinea = document.querySelector("label[for='lineaCredito']");
+        const labelPeriodo = document.querySelector("label[for='periodo']");
+        const labelFechaActual = document.querySelector("label[for='fechaActual']");
+        const labelFechaPago = document.querySelector("label[for='fechaPago']");
+
+        const contenido = [
+          title ? title.textContent.replace(/\s+/g, " ").trim() : "",
+          subtitle ? subtitle.textContent.trim() : "",
+          noteTitles[0] ? noteTitles[0].textContent.trim() : "",
+          noteDescriptions[0] ? noteDescriptions[0].textContent.trim() : "",
+          noteTitles[1] ? noteTitles[1].textContent.trim() : "",
+          noteDescriptions[1] ? noteDescriptions[1].textContent.trim() : "",
+          noteTitles[2] ? noteTitles[2].textContent.trim() : "",
+          noteDescriptions[2] ? noteDescriptions[2].textContent.trim() : "",
+          labelLinea ? labelLinea.textContent.trim() : "",
+          labelPeriodo ? labelPeriodo.textContent.trim() : "",
+          labelFechaActual ? labelFechaActual.textContent.trim() : "",
+          labelFechaPago ? labelFechaPago.textContent.trim() : ""
+        ].filter(Boolean).join(". ");
+
+        leerTexto(contenido);
+      }
+
+      function leerResultado() {
+        const contenido = resultContainer ? resultContainer.textContent.trim() : "";
+
+        if (!contenido) {
+          leerTexto("Aun no hay un resultado calculado.");
+          return;
+        }
+
+        leerTexto(contenido);
+      }
+
+      if (!supportsSpeech) {
+        console.warn("speechSynthesis no esta disponible en este navegador.");
+        supportMessage.hidden = false;
+      } else {
+        loadVoices();
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+
+      accessibilityTrigger.addEventListener("click", function () {
+        setPanelState(!accessibilityPanel.classList.contains("is-open"));
+      });
+
+      accessibilityMenu.addEventListener("click", function (event) {
+        const actionButton = event.target.closest("[data-read-action]");
+        if (!actionButton) {
+          return;
+        }
+
+        const action = actionButton.getAttribute("data-read-action");
+
+        if (action === "interface") {
+          leerInterfaz();
+        }
+
+        if (action === "result") {
+          leerResultado();
+        }
+
+        if (action === "stop") {
+          detenerLectura();
+        }
+
+        setPanelState(false);
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".accessibility-panel")) {
+          setPanelState(false);
+        }
+      });
+    });
+  </script>
+  <script>
+    (function () {
+      function escapeHtml(text) {
+        return String(text)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function extractValue(lines, matcher) {
+        const line = lines.find(function (item) {
+          return matcher.test(item);
+        });
+        return line || "";
+      }
+
+      function formatTipoCalculo(value) {
+        const rawValue = String(value || "").trim();
+
+        if (!rawValue) {
+          return "";
+        }
+
+        const normalizedValue = rawValue
+          .replace(/([a-z])([A-Z])/g, "$1 $2")
+          .replace(/[_-]+/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .toLowerCase();
+
+        const friendlyLabels = {
+          "pago durante estudio": "Pago durante estudio",
+          "pago recogiendo ultima cuota": "Pago recogiendo ultima cuota"
+        };
+
+        if (friendlyLabels[normalizedValue]) {
+          return friendlyLabels[normalizedValue];
+        }
+
+        return normalizedValue.replace(/\b\w/g, function (letter) {
+          return letter.toUpperCase();
+        });
+      }
+
+      function appendPlazoSolicitadoResult(rawText, requestedPlazo, lineaCredito) {
+        const trimmedText = String(rawText || "").trim();
+        const requestedValue = parseInt(requestedPlazo, 10);
+        const normalizedLinea = String(lineaCredito || "").trim().toLowerCase();
+
+        if (normalizedLinea === "461") {
+          return trimmedText;
+        }
+
+        if (!trimmedText || Number.isNaN(requestedValue) || requestedValue <= 0) {
+          return trimmedText;
+        }
+
+        const plazoMatch = trimmedText.match(/Plazo m[aá]ximo:\s*(\d+)\s+(cuotas|meses)/i)
+          || trimmedText.match(/Plazo siguiente:\s*(\d+)\s+(meses)/i)
+          || trimmedText.match(/Siguiente semestre:\s*\d+\s*.*?Plazo siguiente:\s*(\d+)\s+(meses)/i);
+
+        if (!plazoMatch) {
+          return trimmedText;
+        }
+
+        const maxPlazoValue = parseInt(plazoMatch[1], 10);
+        const plazoUnit = (plazoMatch[2] || "cuotas").toLowerCase();
+        const isPossible = requestedValue <= maxPlazoValue;
+        const plazoLine = `Plazo solicitado: ${requestedValue} ${plazoUnit} - ${isPossible ? "Si es posible" : "No es posible"}.`;
+
+        return `${trimmedText}\n${plazoLine}`;
+      }
+
+      function parseFinalResult(rawText) {
+        const lines = String(rawText || "")
+          .split("\n")
+          .map(function (line) { return line.trim(); })
+          .filter(Boolean);
+
+        const cards = [];
+        const notes = [];
+        const isError = lines.some(function (line) {
+          return /^error\b/i.test(line) || /^no\s/i.test(line) || /^el codigo/i.test(line);
+        });
+        const isPosgradoResult = /posgrado/i.test(rawText);
+
+        const lineaLine = extractValue(lines, /^l[ií]nea/i);
+        const mesLine = extractValue(lines, /^se aprueba en el mes de:/i);
+        const plazoMaxLine = extractValue(lines, /^plazo m[aá]ximo:/i);
+        const plazoSiguienteLine = extractValue(lines, /^plazo siguiente:/i);
+        const plazoAnteriorLine = extractValue(lines, /^plazo anterior:/i);
+        const columnaLine = extractValue(lines, /columna:/i);
+        const tipoUviLine = extractValue(lines, /cuatrimestral uvi|semestral virtual uvi|posgrado/i);
+        const valorLine = extractValue(lines, /^valor a financiar:/i);
+        const semestreLine = extractValue(lines, /^semestre anterior:/i);
+        const siguienteSemestreLine = extractValue(lines, /^siguiente semestre:/i);
+        const plazoSolicitadoLine = extractValue(lines, /^plazo solicitado:/i);
+
+        let lineaValue = "";
+        let diaPagoValue = "";
+        let normalizedLineaValue = "";
+        let isCarteraLine = false;
+        let useApprovalDate = false;
+        if (lineaLine) {
+          const lineaMatch = lineaLine.match(/^l[ií]nea:?\s*([^-.,\n]+)/i) || lineaLine.match(/^l[ií]nea\s+([^-]+)-/i);
+          const diaPagoMatch = lineaLine.match(/d[ií]a de pago:?\s*(\d{1,2})/i);
+          if (lineaMatch) {
+            lineaValue = lineaMatch[1].trim();
+            cards.push({ label: "Linea", value: lineaValue });
+          }
+          if (diaPagoMatch) {
+            diaPagoValue = diaPagoMatch[1].trim();
+          }
+        }
+
+        normalizedLineaValue = lineaValue.toLowerCase();
+        isCarteraLine = ["cartera administrada", "cartera riesgo"].includes(normalizedLineaValue);
+        useApprovalDate = normalizedLineaValue === "610" || normalizedLineaValue === "461" || normalizedLineaValue === "2010" || isCarteraLine || (normalizedLineaValue === "376" && isPosgradoResult);
+
+        if (mesLine) {
+          const mesMatch = mesLine.match(/se aprueba en el mes de:\s*(.+?)(?:\.)?$/i);
+          if (mesMatch) {
+            const mesValue = mesMatch[1].trim();
+            const approvalDayValue = normalizedLineaValue === "2010" ? "5" : diaPagoValue;
+            const approvalLabel = useApprovalDate ? "Fecha de aprobacion" : "Mes de aprobacion";
+            const approvalValue = useApprovalDate && approvalDayValue ? `${approvalDayValue} de ${mesValue.toLowerCase()}` : mesValue;
+
+            cards.push({ label: approvalLabel, value: approvalValue });
+          }
+        }
+
+        if (columnaLine) {
+          const columnaMatch = columnaLine.match(/columna:\s*(.+?)(?:\.)?$/i);
+          if (columnaMatch) {
+            const tipoCalculoValue = isPosgradoResult && isCarteraLine
+              ? "Calculo posgrado credito SAP"
+              : formatTipoCalculo(columnaMatch[1]);
+
+            cards.push({ label: "Tipo de calculo", value: tipoCalculoValue });
+          }
+        } else if (tipoUviLine) {
+          const cleanedType = tipoUviLine
+            .replace(/^d[ií]a de pago:\s*\d+\s*=>\s*/i, "")
+            .replace(/[().]/g, "")
+            .trim();
+
+          cards.push({
+            label: "Tipo de calculo",
+            value: isPosgradoResult && isCarteraLine
+              ? "Calculo posgrado credito SAP"
+              : lineaValue === "376" && /posgrado/i.test(cleanedType)
+                ? "Calculo posgrado"
+                : formatTipoCalculo(cleanedType)
+          });
+        }
+
+        if (plazoMaxLine) {
+          const plazoMaxMatch = plazoMaxLine.match(/plazo m[aá]ximo:\s*(.+?)(?:\.)?$/i);
+          if (plazoMaxMatch) {
+            let plazoValue = plazoMaxMatch[1].trim();
+
+            if (lineaValue === "376") {
+              plazoValue = plazoValue.replace(/\s*\((?:Posgrado|posgrado)[^)]*\)/g, "").trim();
+            }
+
+            if (isPosgradoResult && isCarteraLine) {
+              plazoValue = plazoValue
+                .replace(/\s*\((?:Posgrado|posgrado)[^)]*\)/g, "")
+                .replace(/^6\s+cuotas.*$/i, "6 cuotas")
+                .replace(/^seis\s+cuotas.*$/i, "6 cuotas")
+                .trim();
+            }
+
+            cards.push({ label: "Plazo maximo", value: plazoValue, highlight: true });
+          }
+        } else if (plazoSiguienteLine) {
+          const plazoSiguienteMatch = plazoSiguienteLine.match(/plazo siguiente:\s*(.+?)(?:\.)?$/i);
+          if (plazoSiguienteMatch) {
+            const plazoSiguienteValue = plazoSiguienteMatch[1].trim();
+            const cleanedPlazoSiguienteValue = normalizedLineaValue === "461"
+              ? (plazoSiguienteValue.match(/(\d+\s+meses)/i) || [null, plazoSiguienteValue])[1].trim()
+              : plazoSiguienteValue;
+            const plazoSiguienteLabel = normalizedLineaValue === "461" ? "Siguiente semestre" : "Plazo siguiente";
+
+            cards.push({ label: plazoSiguienteLabel, value: cleanedPlazoSiguienteValue, highlight: true });
+          }
+        }
+
+        if (valorLine) {
+          const valorMatch = valorLine.match(/^valor a financiar:\s*(.+?)(?:\.)?$/i);
+          if (valorMatch) {
+            cards.push({ label: "Valor a financiar", value: valorMatch[1].trim() });
+          }
+        }
+
+        if (semestreLine && normalizedLineaValue !== "461") {
+          cards.push({ label: "Semestre anterior", value: semestreLine.replace(/^semestre anterior:\s*/i, "").trim() });
+        }
+
+        if (siguienteSemestreLine) {
+          if (normalizedLineaValue === "461" && !plazoSiguienteLine) {
+            const nextSemesterValue = siguienteSemestreLine.match(/plazo siguiente:\s*(\d+\s+meses)/i);
+            cards.push({
+              label: "Siguiente semestre",
+              value: nextSemesterValue ? nextSemesterValue[1].trim() : siguienteSemestreLine.replace(/^siguiente semestre:\s*/i, "").trim(),
+              highlight: true
+            });
+          } else if (normalizedLineaValue !== "461") {
+            cards.push({ label: "Siguiente semestre", value: siguienteSemestreLine.replace(/^siguiente semestre:\s*/i, "").trim() });
+          }
+        }
+
+        if (plazoSolicitadoLine && normalizedLineaValue !== "461") {
+          const plazoSolicitadoMatch = plazoSolicitadoLine.match(/^plazo solicitado:\s*(.+?)(?:\.)?$/i);
+          if (plazoSolicitadoMatch) {
+            cards.push({ label: "Plazo solicitado", value: plazoSolicitadoMatch[1].trim() });
+          }
+        }
+
+          lines.forEach(function (line) {
+            const alreadyMapped = [
+              lineaLine,
+              mesLine,
+            plazoMaxLine,
+            plazoSiguienteLine,
+            plazoAnteriorLine,
+            columnaLine,
+            tipoUviLine,
+            valorLine,
+            semestreLine,
+            siguienteSemestreLine,
+            plazoSolicitadoLine
+          ].includes(line);
+
+            if (!alreadyMapped) {
+              notes.push({
+                text: line,
+                isError: /^error\b/i.test(line) || /^no\s/i.test(line) || /^el codigo/i.test(line)
+              });
+            }
+          });
+
+          if (normalizedLineaValue === "2010" && !isError) {
+            notes.push({
+              text: "Nota: validar si en credito nuevo existe un plazo mayor. En caso de tenerlo, se mantiene el plazo definido en credito nuevo para la linea 2010.",
+              isError: false
+            });
+          }
+
+          if (!cards.length && !notes.length) {
+            notes.push({ text: rawText, isError: isError });
+          }
+
+        return { cards: cards, notes: notes, isError: isError };
+      }
+
+      window.renderVisualResult = function (rawText) {
+        const resultContainer = document.getElementById("resultado");
+        const trimmed = String(rawText || "").trim();
+
+        if (!resultContainer) {
+          return;
+        }
+
+        if (!trimmed) {
+          resultContainer.classList.remove("result-enhanced");
+          resultContainer.innerHTML = "";
+          return;
+        }
+
+        const parsed = parseFinalResult(trimmed);
+        const cardsHtml = parsed.cards.map(function (card) {
+          return `
+            <article class="result-card${card.highlight ? " is-highlight" : ""}">
+              <span class="result-card-label">${escapeHtml(card.label)}</span>
+              <strong class="result-card-value">${escapeHtml(card.value)}</strong>
+            </article>
+          `;
+        }).join("");
+
+        const notesHtml = parsed.notes.length
+          ? `<div class="result-notes">${parsed.notes.map(function (note) {
+              return `<div class="result-note${note.isError ? " is-error" : ""}">${escapeHtml(note.text)}</div>`;
+            }).join("")}</div>`
+          : "";
+          const successAsideHtml = !parsed.isError
+            ? `
+              <aside class="result-aside" aria-hidden="true">
+                <div class="result-mascot-card">
+                  <span class="result-mascot-kicker">Calculo exitoso</span>
+                  <img class="result-mascot-image" src="success-robot.svg" alt="" />
+                  <p class="result-mascot-note">
+                    <strong>Nota:</strong> valida siempre los resultados generados. Esta app brinda una guia de apoyo para la gestion del credito, pero su interpretacion final depende de la revision del auxiliar y de ajustes operativos que pueden cambiar fuera de la logica del aplicativo.
+                  </p>
+                </div>
+              </aside>
+            `
+            : "";
+
+        resultContainer.classList.add("result-enhanced");
+        resultContainer.innerHTML = `
+          <div class="result-shell" aria-label="Resultado del calculo">
+            <div class="result-body${parsed.isError ? " is-error" : ""}">
+              ${cardsHtml ? `<div class="result-grid">${cardsHtml}</div>` : ""}
+              ${successAsideHtml}
+            </div>
+            ${notesHtml}
+          </div>
+        `;
+      };
+
+      const alertModal = document.getElementById("alertModal");
+      const alertModalMessage = document.getElementById("alertModalMessage");
+      const alertModalAccept = document.getElementById("alertModalAccept");
+      const alertCloseTargets = alertModal ? alertModal.querySelectorAll("[data-alert-close]") : [];
+      let previousActiveElement = null;
+
+      function closeAlertModal() {
+        if (!alertModal) {
+          return;
+        }
+
+        alertModal.classList.remove("is-open");
+        alertModal.setAttribute("aria-hidden", "true");
+
+        if (previousActiveElement && typeof previousActiveElement.focus === "function") {
+          previousActiveElement.focus();
+        }
+      }
+
+      function openAlertModal(message) {
+        if (!alertModal || !alertModalMessage || !alertModalAccept) {
+          return;
+        }
+
+        previousActiveElement = document.activeElement;
+        alertModalMessage.textContent = String(message || "").trim();
+        alertModal.classList.add("is-open");
+        alertModal.setAttribute("aria-hidden", "false");
+        requestAnimationFrame(function () {
+          alertModalAccept.focus();
+        });
+      }
+
+      if (alertModal && alertModalAccept) {
+        alertModalAccept.addEventListener("click", closeAlertModal);
+
+        alertCloseTargets.forEach(function (target) {
+          target.addEventListener("click", closeAlertModal);
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && alertModal.classList.contains("is-open")) {
+            closeAlertModal();
+          }
+        });
+
+        window.showAppAlert = openAlertModal;
+        window.alert = function (message) {
+          openAlertModal(message);
+        };
+      }
+
+        window.addEventListener("DOMContentLoaded", function () {
+          window.invocarCalculo = function () {
+            const lineaCredito = document.getElementById("lineaCredito").value;
+            const periodo = document.getElementById("periodo").value.trim();
+            const fechaActual = document.getElementById("fechaActual").value;
+            const fechaPago = parseInt(document.getElementById("fechaPago").value, 10);
+            const plazoSolicitado = document.getElementById("plazoSolicitado").value.trim();
+            const valorFinanciar = parseFloat(document.getElementById("valorFinanciar").value || 0);
+            const semestreAnterior = document.getElementById("semestreAnterior").value;
+            const plazoAnterior = document.getElementById("plazoAnterior").value;
+            const resultContainer = document.getElementById("resultado");
+            const actionButton = document.querySelector(".primary-action");
+            const esPosgrado376 =
+              String(lineaCredito || "").trim().toLowerCase() === "376" &&
+              Array.isArray(window.CODIGOS_POSGRADO || CODIGOS_POSGRADO) &&
+              (window.CODIGOS_POSGRADO || CODIGOS_POSGRADO).includes(periodo);
+
+            if (actionButton) {
+              actionButton.classList.add("is-calculating");
+            }
+
+            if (esPosgrado376 && !valorFinanciar) {
+              if (typeof window.showAppAlert === "function") {
+                window.showAppAlert("Para calcular plazo en la linea 376 con periodo posgrado debes ingresar el valor a financiar.");
+              } else {
+                alert("Para calcular plazo en la linea 376 con periodo posgrado debes ingresar el valor a financiar.");
+              }
+              resultContainer.innerText = "";
+              window.renderVisualResult("");
+              if (actionButton) {
+                window.setTimeout(function () {
+                  actionButton.classList.remove("is-calculating");
+                }, 180);
+              }
+              return;
+            }
+
+            const resultado = calcularPlazo(
+              lineaCredito,
+              periodo,
+            fechaActual,
+            fechaPago,
+            valorFinanciar,
+            semestreAnterior,
+            plazoAnterior
+          );
+
+          const resultadoTexto = String(resultado || "").trim();
+          const esResultadoError =
+            /^error\b/i.test(resultadoTexto) ||
+            /^no\s/i.test(resultadoTexto) ||
+            /^el c[oó]digo/i.test(resultadoTexto) ||
+            /^el per/i.test(resultadoTexto) ||
+            /^por favor/i.test(resultadoTexto) ||
+            /^semestre anterior\b/i.test(resultadoTexto);
+
+          if (!resultadoTexto) {
+            resultContainer.innerText = "";
+            window.renderVisualResult("");
+            if (actionButton) {
+              window.setTimeout(function () {
+                actionButton.classList.remove("is-calculating");
+              }, 180);
+            }
+            return;
+          }
+
+          if (esResultadoError) {
+            if (typeof window.showAppAlert === "function") {
+              window.showAppAlert(resultadoTexto);
+            } else {
+              alert(resultadoTexto);
+            }
+            resultContainer.innerText = "";
+            window.renderVisualResult("");
+            if (actionButton) {
+              window.setTimeout(function () {
+                actionButton.classList.remove("is-calculating");
+              }, 180);
+            }
+            return;
+          }
+
+          const resultadoFinal = appendPlazoSolicitadoResult(resultadoTexto, plazoSolicitado, lineaCredito);
+
+          resultContainer.innerText = resultadoFinal;
+          window.renderVisualResult(resultadoFinal);
+
+          if (actionButton) {
+            window.setTimeout(function () {
+              actionButton.classList.remove("is-calculating");
+            }, 220);
+          }
+        };
+      });
+    })();
+  </script>
+</body>
+</html>
